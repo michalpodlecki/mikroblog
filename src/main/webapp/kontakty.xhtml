@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+  xmlns:ui="http://java.sun.com/jsf/facelets"
+  xmlns:f="http://java.sun.com/jsf/core"
+  xmlns:h="http://java.sun.com/jsf/html"
+  template="/WEB-INF/templates/default.xhtml">
+  <ui:define name="content">
+    <h1>Mikroblog - strona główna</h1>
+
+
+    <h:dataTable value="#{userBean.wszystkiePosty}" var="current">
+      <h:column>
+        <h:outputText value="#{current.tytul}" />
+        <h:outputText value="#{current.tresc}" />
+      </h:column>
+      <h:column>
+        <h:dataTable value="#{current.telefony}" var="current_tel">
+          <h:column>
+            <h:outputText value="#{current_tel.numer}" />
+          </h:column>
+        </h:dataTable>
+      </h:column>
+    </h:dataTable>
+
+    <hr width="100%" />
+
+    <h:form>
+      <h:panelGrid columns="2">
+        <h:outputText value="Nazwa " />
+        <h:inputText value="#{kontaktyBean.nazwa}" />
+        <h:outputText value="Telefon " />
+        <h:inputText value="#{kontaktyBean.telefon}" />
+      </h:panelGrid>
+      <h:panelGrid columns="1">
+        <h:commandButton value="Dodaj nowy kontakt"
+          action="#{kontaktyBean.wykonajZapytanie}" />
+      </h:panelGrid>
+    </h:form>
+    
+    <h:outputText value="#{userBean.login}" />
+
+  </ui:define>
+</ui:composition>

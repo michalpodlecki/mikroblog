@@ -1,0 +1,259 @@
+body {
+	margin: 0;
+	padding: 0;
+	background: rgb(239,239,239);
+	}
+
+* {
+	margin: 0;
+	padding: 0
+	}
+
+#container {
+	width: 840px;
+	margin: 0 auto 20px;
+	background: white;
+	border-left: 1px solid black;
+	border-right: 1px solid black;
+	border-top: 2px solid black;
+	border-bottom: 2px solid black;
+	}
+	
+h1 {
+	font: 36px "Trebuchet MS";
+	color: rgb(98,211,255);
+	display: block;
+	width: 830px;
+	margin: 10px auto;
+	text-shadow: 1px 1px 1px black;
+	}
+
+#container h2 {
+	font: 24px "Trebuchet MS";
+	color: purple; /* rgb(176,176,176); */
+	margin: 20px 0 10px 20px;
+	}
+
+#content {
+	width: 100%;
+	overflow: hidden;
+	position: relative;
+	}
+
+#footer {
+	width: 100%;
+	border-top: 5px dashed rgb(236,236,236);
+	background: transparent;
+	padding: 30px 0;
+	text-align: center;
+	margin-top: 20px;
+	}
+	
+#footer p {
+	color: rgb(79,79,79);
+	font: 11px Arial;
+	margin: 0;
+	}
+
+#top-menu {
+	text-align: center;
+	border-left: 1px solid brown;
+	border-bottom: 1px solid brown;
+	background: white;
+	font: 12px Georgia;
+	position: absolute;
+	top: 0;
+	right: 0;
+	padding: 3px 10px;
+}
+
+#top-menu form {
+	margin: 0;
+	border: none;
+	width: 100%;
+	padding: 0;
+	}
+
+#top-menu a {
+	color: black;
+	text-decoration: none;
+}
+
+#top-menu a:hover {
+	text-decoration: underline;
+}
+
+#zalogowany {
+	border: 1px solid red;
+	padding: 6px 12px;
+	background: pink;
+	color: black;
+	font: bold 12px Arial;
+	display: none;
+	}
+	
+#post-tresc {
+	width: 460px;
+	font-style: italic;
+	color: rgb(224,224,224);
+	font: 13px Georgia;
+	padding: 10px 20px;
+	border: 1px dotted black;
+	}
+	
+form.logowanie {
+	padding: 10px;
+	width: 380px;
+	float: left;
+	border: 1px solid rgb(224,224,224);
+	font: normal 13px Tahoma;
+	color: rgb(158,158,158);
+	margin: 20px 10px 20px 10px;
+	float: left;
+	}
+	
+form.rejestracja {
+	padding: 10px;
+	width: 440px;
+	float: left;
+	border: 1px solid rgb(224,224,224);
+	font: normal 13px Tahoma;
+	color: rgb(158,158,158);
+	margin: 20px 10px 20px 10px;
+	float: left;
+	}
+	
+#lista-userow {
+	width: 360px;
+	float: right;
+	border: 1px solid #E0E0E0;
+	margin-left: 10px;
+	font: normal 13px Tahoma;
+	color: rgb(98,98,98);
+	margin: 20px;
+	overflow-y: auto;
+	height: 280px;
+	}
+
+#lista-userow a {
+	text-decoration: none;
+	color: rgb(9,57,77);
+	}
+	
+#lista-userow a:hover {
+	text-decoration: underline;
+	color: red;
+	}
+
+#lista-userow table {
+	width: 100%;
+	}
+
+#lista-userow table td {
+	background: #DDEEFF;
+	font: 14px Arial;
+	padding: 10px 10px;
+	width: 100%;
+	}
+	
+#lista-userow table tr:nth-child(2n) td {
+	background: rgb(240,248,255)
+	}
+	
+form.post-dodaj {
+	margin: 10px;
+	background: #F0F0F0;
+	padding: 10px;
+	}
+		
+.posty-lista {
+	width: 760px;
+	margin: 10px auto;
+	clear: both;
+	font: 13px Georgia;
+	}
+
+.posty-lista td u {
+	text-decoration: none;
+	color: #1AA6DB;
+	display: block;
+	font-weight: bold;
+	margin-bottom: 2px;
+	}
+	
+.posty-lista td {
+	padding: 10px;
+	border-bottom: 1px solid #EEEEEE;
+	}
+	
+.posty-lista td:first-child {
+	width: 580px;
+	}
+
+.posty-lista tr:hover td {
+	background: #f7f7f7;
+	}
+
+	
+input, textarea {
+	border: 1px solid #E2EFFF;
+	color: black;
+	font: 14px Tahoma;
+	margin: 1px;
+	padding: 3px;
+	}
+	
+input[type=text], input[type=password] {
+	width: 260px;
+	}
+	
+input[type=submit] {
+	border: 1px solid #333333;
+	background: #5599BB;
+	padding: 3px 10px;
+	color: white;
+	font-size: 13px;
+	font-weight: bold;
+	}	
+	
+input[type=submit]:hover {
+	background: white;
+	color: #5599BB;
+	}
+	
+textarea {
+		width: 480px;
+		height: 70px;
+	}	
+	
+a {
+	color: rgb(26,166,219);
+	text-decoration: underline;
+	font: 11px verdana
+	}
+	
+a:hover {
+	text-decoration: none;
+	}
+	
+.komentarze {
+	width: 740px;
+	margin-left: 60px;
+	color: rgb(140,140,140);
+	font: 11px Georgia;
+	}
+
+.komentarze td b {
+	color: rgb(32,114,153);
+	}
+
+.komentarze td {
+	padding: 10px;
+	background: rgb(248,248,248);
+	border-bottom: 1px solid rgb(210,210,210);
+	}
+	
+	
+.komentarze td:first-child {
+	width: 680px;
+	}

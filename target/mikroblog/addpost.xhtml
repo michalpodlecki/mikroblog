@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+  xmlns:ui="http://java.sun.com/jsf/facelets"
+  xmlns:f="http://java.sun.com/jsf/core"
+  xmlns:h="http://java.sun.com/jsf/html"
+  template="/WEB-INF/templates/default.xhtml">
+  <ui:define name="content">
+    <h1>Dodaj posta</h1>
+
+    <h:form>
+      <h:panelGrid columns="2">
+        <h:outputText value="tytuł: " />
+        <h:inputText value="#{userBean.tytul}" />
+        <h:outputText value="treść: " />
+        <h:inputTextArea value="#{userBean.tresc}" />
+      </h:panelGrid>
+      <h:panelGrid columns="1">
+        <h:commandButton value="Dodaj posta"
+          action="#{userBean.dodajPosta}" />
+           <h:commandLink value="Powrót" action="posty" />
+      </h:panelGrid>
+    </h:form>
+    <h:outputText value="#{userBean.login}" />
+
+  </ui:define>
+</ui:composition>

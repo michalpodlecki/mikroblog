@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+  xmlns:ui="http://java.sun.com/jsf/facelets"
+  xmlns:f="http://java.sun.com/jsf/core"
+  xmlns:h="http://java.sun.com/jsf/html"
+  template="/WEB-INF/templates/default.xhtml">
+  <ui:define name="content">
+    <h1>Baza kontaktów</h1>
+
+	<h:form>
+    <h:dataTable value="#{kontaktyBean.wszystkieKontakty}" var="current">
+      <h:column>
+        <h:outputText value="#{current.nazwa}" />
+      </h:column>
+      <h:column>
+        <h:outputText value="#{current.pesel}" />
+      </h:column>
+      <h:column>
+          <h:commandLink action="#{kontaktyBean.showKontakt}" value=" Pokaż " /> 
+          <h:outputText value=" | " />
+          <h:commandLink action="#{kontaktyBean.usunKontakt}" value=" Usun " />         
+        </h:column>
+    </h:dataTable>
+	<h:commandLink action="kontakty" value=" Powrót " />
+    </h:form>
+
+
+  </ui:define>
+</ui:composition>

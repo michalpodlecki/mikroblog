@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	template="/WEB-INF/templates/default.xhtml">
+
+	<ui:define name="content">
+		<h2><h:outputText
+			value="#{userBean.user.imie} #{userBean.user.nazwisko} - " /><i><h:outputText
+			value="#{userBean.post.tytul}" /></i></h2>
+			
+			<div id="top-menu"><h:form
+			rendered="#{userBean.czyZalogowany eq 'true'}">
+			<b>zalogowany:</b>
+			<h:commandLink action="#{userBean.pokazPosty}"
+				value="#{userBean.user.imie} #{userBean.user.nazwisko}" /> | 
+			<h:commandLink action="#{userBean.edytujUsera}" value="Edytuj profil" /> | <h:commandLink
+				action="#{userBean.logOut}" value="Wyloguj się" />
+		</h:form> <h:form rendered="#{userBean.czyZalogowany eq 'false'}">
+			<h:commandLink action="#{userBean.zaloguj}" value="Zaloguj się" />
+		</h:form></div>
+			
+		<table class="posty-lista">
+			<tr>
+				<td><u><h:outputText value="#{userBean.post.tytul}" /></u> <h:outputText
+					value="#{userBean.post.tresc}" /></td>
+			</tr>
+		</table>
+
+		<h:form>
+			<h:dataTable value="#{userBean.komentarze}" var="current"
+				styleClass="komentarze">
+				<h:column>
+					<b><h:outputText value="#{current.autor}: " /></b>
+					<h:outputText value="#{current.tresc}" />
+				</h:column>
+				<h:column rendered="#{userBean.sudo eq 'true'}">
+					<h:commandLink action="#{userBean.usunKomentarz}" value=" Usuń " />
+				</h:column>
+			</h:dataTable>
+		</h:form>
+		<h:form styleClass="post-dodaj">
+			<h:panelGrid columns="1">
+				<h:inputText value="#{userBean.komentarz.autor}"
+					style="font-style: italic" />
+				<h:inputTextarea value="#{userBean.komentarz.tresc}" />
+				<h:commandButton action="#{userBean.dodajKomentarz}" value="Dodaj" />
+			</h:panelGrid>
+
+			<h:commandLink action="#{userBean.pokazPosty}" style="margin: 10px">Powrót</h:commandLink>
+
+		</h:form>
+	</ui:define>
+
+</ui:composition>

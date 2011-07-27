@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	template="/WEB-INF/templates/default.xhtml">
+	<ui:define name="content">
+		<h2>Logowanie</h2>
+		
+		<div id="top-menu"><h:form
+			rendered="#{userBean.czyZalogowany eq 'true'}">
+			<b>zalogowany:</b>
+			<h:commandLink action="#{userBean.pokazMojProfil}"
+				value="#{userBean.zalogowany.imie} #{userBean.zalogowany.nazwisko}" /> | 
+			<h:commandLink action="#{userBean.edytujUsera}" value="Edytuj profil" /> | <h:commandLink
+				action="#{userBean.logOut}" value="Wyloguj się" />
+		</h:form>
+		<h:form rendered="#{userBean.czyZalogowany eq 'false'}">
+			Witaj nieznajomy, zaloguj się
+		</h:form>
+		
+		</div>
+
+		<h:form styleClass="logowanie">
+			<h:panelGrid columns="2">
+				<h:outputText value="login: " />
+				<h:inputText value="#{userBean.user.login}" autocomplete="off" />
+				<h:outputText value="hasło: " />
+				<h:inputSecret value="#{userBean.user.haslo}" />
+			</h:panelGrid>
+			<h:panelGrid columns="1">
+				<h:commandButton value="Zaloguj się" action="#{userBean.logIn}" />
+				<h:commandLink value="Zarejestruj się" action="rejestracja" />
+			</h:panelGrid>
+		</h:form>
+
+		<div id="lista-userow">
+			<h:dataTable value="#{userBean.users}" var="current">
+				<h:column>
+						<h:form>
+							<h:commandLink action="#{userBean.pokazProfil}" value="#{current.imie} #{current.nazwisko} " />
+							<small><h:outputText value="(#{current.login})" /></small>
+						</h:form>
+				</h:column>
+			</h:dataTable>
+		</div>
+
+	</ui:define>
+</ui:composition>

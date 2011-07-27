@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+  xmlns:ui="http://java.sun.com/jsf/facelets"
+  xmlns:f="http://java.sun.com/jsf/core"
+  xmlns:h="http://java.sun.com/jsf/html"
+  template="/WEB-INF/templates/default.xhtml">
+  <ui:define name="content">
+    <h2>Profil - edycja</h2>
+
+    <h:form styleClass="logowanie">
+      <h:panelGrid columns="2">
+        <h:outputText value="hasło: " />
+        <h:inputSecret value="#{userBean.user.haslo}" autocomplete="off" />
+        <h:outputText value="imię: " />
+        <h:inputText value="#{userBean.user.imie}"  />
+        <h:outputText value="nazwisko: " />
+        <h:inputText value="#{userBean.user.nazwisko}" />
+        <h:outputText value="rok urodzenia: " />
+        <h:inputText value="#{userBean.user.rok_urodzenia}" />
+      </h:panelGrid>
+      <h:panelGrid columns="1">
+        <h:commandButton value="Aktualizuj dane"
+          action="#{userBean.edit}" />
+        <h:commandLink action="#{userBean.pokazPosty}" style="margin: 10px">Powrót</h:commandLink>
+      </h:panelGrid>
+    </h:form>
+
+  </ui:define>
+</ui:composition>

@@ -1,0 +1,2 @@
+
+<% response.sendRedirect("logowanie.jsf"); %>

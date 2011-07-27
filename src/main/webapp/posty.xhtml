@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	template="/WEB-INF/templates/default.xhtml">
+	<ui:define name="content">
+		<h2><h:outputText
+			value="#{userBean.user.imie} #{userBean.user.nazwisko} " /><i>-
+		posty</i></h2>
+
+		<div id="top-menu"><h:form
+			rendered="#{userBean.czyZalogowany eq 'true'}">
+			<b>zalogowany:</b>
+			<h:commandLink action="#{userBean.pokazPosty}"
+				value="#{userBean.zalogowany.imie} #{userBean.zalogowany.nazwisko}" /> | 
+			<h:commandLink action="#{userBean.edytujUsera}" value="Edytuj profil" /> | <h:commandLink
+				action="#{userBean.logOut}" value="Wyloguj się" />
+		</h:form> <h:form rendered="#{userBean.czyZalogowany eq 'false'}">
+			<h:commandLink action="#{userBean.zaloguj}" value="Zaloguj się" />
+		</h:form></div>
+
+		<h:form styleClass="post-dodaj"
+			rendered="#{userBean.sudo eq 'true'}">
+			<h:panelGrid columns="1">
+				<h:inputText value="#{userBean.post.tytul}"
+					style="font-style: italic" />
+				<h:inputTextarea value="#{userBean.post.tresc}" />
+				<h:commandButton action="#{userBean.dodajPosta}" value="Dodaj" />
+			</h:panelGrid>
+		</h:form>
+		<h:form styleClass="posty-lista">
+			<h:dataTable value="#{userBean.posty}" var="current">
+				<h:column>
+					<u><h:outputText value="#{current.tytul}" /></u>
+					<h:outputText value="#{current.tresc}" />
+				</h:column>
+				<h:column>
+					<h:commandLink action="#{userBean.pokazPost}" value=" Pokaż " />
+					<h:outputText value=" | " rendered="#{userBean.sudo eq 'true'}" />
+					<h:commandLink action="#{userBean.edytujPost}" value=" Edytuj "
+						rendered="#{userBean.sudo eq 'true'}" />
+					<h:outputText value=" | " rendered="#{userBean.sudo eq 'true'}" />
+					<h:commandLink action="#{userBean.usunPosta}" value=" Usuń "
+						rendered="#{userBean.sudo eq 'true'}" />
+				</h:column>
+			</h:dataTable>
+		</h:form>
+
+		<div><h:form>
+			<h:commandLink action="#{userBean.zaloguj}" value="Lista użytkowników" style="margin-left: 10px" />
+		</h:form></div>
+
+	</ui:define>
+</ui:composition>
